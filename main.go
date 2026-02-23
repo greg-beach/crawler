@@ -21,4 +21,12 @@ func main() {
 	baseURL := args[1]
 
 	fmt.Printf("starting crawl of: %s\n", baseURL)
+
+	fetchedHTML, err := getHTML(baseURL)
+	if err != nil {
+		fmt.Printf("error fetching HTML: %v\n", err)
+		os.Exit(1)
+	}
+
+	fmt.Println(fetchedHTML)
 }
